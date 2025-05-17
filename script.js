@@ -1,78 +1,32 @@
-const questions = [
-  {
-    question: "Quelle est la capitale de la France ?",
-    answers: [
-      { text: "Paris", correct: true },
-      { text: "Lyon", correct: false },
-      { text: "Marseille", correct: false }
-    ]
-  },
-  {
-    question: "Combien y a-t-il de continents ?",
-    answers: [
-      { text: "5", correct: false },
-      { text: "6", correct: false },
-      { text: "7", correct: true }
-    ]
-  }
-];
 
-const questionContainer = document.getElementById("question-container");
-const nextButton = document.getElementById("next-btn");
+function startQuiz(topic) {
+  alert(`Starting ${topic} quiz!`);
+  // Redirect to quiz page or load questions dynamically
+}
 
-let currentQuestionIndex = 0;
-
-function showQuestion() {
-  resetState();
-  const currentQuestion = questions[currentQuestionIndex];
-  const questionElement = document.createElement("h2");
-  questionElement.innerText = currentQuestion.question;
-  questionContainer.appendChild(questionElement);
-
-  currentQuestion.answers.forEach(answer => {
-    const button = document.createElement("button");
-    button.innerText = answer.text;
-    button.classList.add("answer");
-    if (answer.correct) button.dataset.correct = answer.correct;
-    button.addEventListener("click", selectAnswer);
-    questionContainer.appendChild(button);
+// Load progress from localStorage when the page loads
+document.addEventListener('DOMContentLoaded', () => {
+  const subjects = ['french', 'english', 'math', 'science','geo'];
+  subjects.forEach(subject => {
+    const progress = localStorage.getItem(`progress-${subject}`) || 0;
+    updateProgressBar(subject, progress);
   });
-}
-
-function resetState() {
-  questionContainer.innerHTML = "";
-  nextButton.style.display = "none";
-}
-
-function selectAnswer(e) {
-  const selectedButton = e.target;
-  const correct = selectedButton.dataset.correct === "true";
-  setStatusClass(selectedButton, correct);
-
-  Array.from(document.getElementsByClassName("answer")).forEach(button => {
-    button.removeEventListener("click", selectAnswer);
-    if (button.dataset.correct === "true") {
-      button.classList.add("correct");
-    } else {
-      button.classList.add("wrong");
-    }
-  });
-
-  nextButton.style.display = "inline";
-}
-
-function setStatusClass(element, correct) {
-  element.classList.add(correct ? "correct" : "wrong");
-}
-
-nextButton.addEventListener("click", () => {
-  currentQuestionIndex++;
-  if (currentQuestionIndex < questions.length) {
-    showQuestion();
-  } else {
-    questionContainer.innerHTML = "<h2>Quiz terminé !</h2>";
-    nextButton.style.display = "none";
-  }
 });
 
-showQuestion();
+function startQuiz(subject) {
+  // Simulate completing more of the quiz
+  let currentProgress = parseInt(localStorage.getItem(`progress-${subject}`) || 0);
+  let newProgress = Math.min(currentProgress + 10, 100); // Increase by 10%
+
+  localStorage.setItem(`progress-${subject}`, newProgress);
+  updateProgressBar(subject, newProgress);
+
+  window.location.href = `${subject}.html`;
+}
+
+function updateProgressBar(subject, value) {
+  const progressElement = document.getElementById(`progress-${subject}`);
+  if (progressElement) {
+    progressElement.style.width = `${value}%`;
+  }
+}
