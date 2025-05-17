@@ -8,24 +8,39 @@
 </head>
 <body>
   <header>
-    <h1>Welcome to QuizZone!</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="leaderboard.html">Leaderboard</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+    <div class="title" onclick="window.location.href='index.html'">QuizZone</div>
+    <!-- Hamburger Button -->
+    <div class="hamburger" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
   </header>
 
+  <!-- Side Navigation Menu -->
+  <div id="sideMenu" class="side-menu">
+    <button class="close-btn" onclick="toggleMenu()">×</button> <!-- Close Button -->
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact</a>
+    <a href="french.html">French Quiz</a>
+    <a href="geo.html">Geography Quiz</a>
+    <a href="math.html">Math Quiz</a>
+    <a href="science.html">Science Quiz</a>
+  </div>
+
   <main>
+    <!-- Quiz Buttons and Progress Bars -->
     <div class="subject" id="french">
-      <button onclick="startQuiz('french')">French</button>
+      <a href="french.html" class="subject-button">
+      <button onclick="startQuiz('french')">French</button></a>
       <div class="progress-bar">
         <div class="progress" id="progress-french" style="width: 30%;"></div>
       </div>
     </div>
 
     <div class="subject" id="english">
+      <a href="english.html" class="subject-button"></a>
       <button onclick="startQuiz('english')">English</button>
       <div class="progress-bar">
         <div class="progress" id="progress-english" style="width: 50%;"></div>
@@ -33,6 +48,7 @@
     </div>
 
     <div class="subject" id="math">
+      <a href="math.html" class="subject-button">
       <button onclick="startQuiz('math')">Math</button>
       <div class="progress-bar">
         <div class="progress" id="progress-math" style="width: 10%;"></div>
@@ -40,6 +56,7 @@
     </div>
 
     <div class="subject" id="science">
+      <a href="science.html" class="subject-button"></a>
       <button onclick="startQuiz('science')">Science</button>
       <div class="progress-bar">
         <div class="progress" id="progress-science" style="width: 80%;"></div>
@@ -47,6 +64,7 @@
     </div>
 
     <div class="subject" id="geo">
+      <a href="geo.html" class="subject-button"></a>
       <button onclick="startQuiz('geo')">Geography</button>
       <div class="progress-bar">
         <div class="progress" id="progress-geo" style="width: 80%;"></div>
@@ -55,5 +73,26 @@
   </main>
 
   <script src="script.js"></script>
+  <script>
+    // Function to toggle the side menu on and off
+    function toggleMenu() {
+      const sideMenu = document.getElementById('sideMenu');
+      sideMenu.classList.toggle('open'); // Toggle the 'open' class to show/hide the menu
+    }
+
+    // Example function to handle quiz starting
+    function startQuiz(subject) {
+      alert(`Starting ${subject} quiz!`);
+    }
+
+    // Close the menu when clicking outside of it
+    window.addEventListener('click', function(e) {
+      const sideMenu = document.getElementById('sideMenu');
+      const hamburger = document.querySelector('.hamburger');
+      if (!sideMenu.contains(e.target) && !hamburger.contains(e.target)) {
+        sideMenu.classList.remove('open'); // Close the menu if the user clicks outside
+      }
+    });
+  </script>
 </body>
 </html>
