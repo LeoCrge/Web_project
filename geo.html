@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>French Quiz</title>
+  <title>Geo Quiz</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -38,5 +38,27 @@
   </main>
 
   <script src="geo.js"></script>
+    <script src="script.js"></script>
+  <script>
+    // Function to toggle the side menu on and off
+    function toggleMenu() {
+      const sideMenu = document.getElementById('sideMenu');
+      sideMenu.classList.toggle('open'); // Toggle the 'open' class to show/hide the menu
+    }
+
+    // Example function to handle quiz starting
+    function startQuiz(subject) {
+      alert(`Starting ${subject} quiz!`);
+    }
+
+    // Close the menu when clicking outside of it
+    window.addEventListener('click', function(e) {
+      const sideMenu = document.getElementById('sideMenu');
+      const hamburger = document.querySelector('.hamburger');
+      if (!sideMenu.contains(e.target) && !hamburger.contains(e.target)) {
+        sideMenu.classList.remove('open'); // Close the menu if the user clicks outside
+      }
+    });
+  </script>
 </body>
 </html>
