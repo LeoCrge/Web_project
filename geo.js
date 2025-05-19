@@ -1,20 +1,36 @@
-const questions = [
-  {
-    question: "Combien y a t'il de continent?",
-    options: ["5", "6", "7", "8"],
-    answer: 2
-  },
-  {
-    question: "Quelle est la capitale du Botswana",
-    options: ["Vert", "Gaborone", "Kinshasa", "Paris"],
-    answer: 1
-  }
-];
-
 let current = 0;
 let score = 0;
+let questions = [];
+
+// Fetch questions from the API
+function fetchQuestions() {
+  fetch('https://opentdb.com/api.php?amount=10&category=22&difficulty=easy')
+    .then(response => response.json())
+    .then(data => {
+      questions = data.results.map(q => {
+        // Shuffle the answers to randomize the options
+        const options = [...q.incorrect_answers, q.correct_answer];
+        const shuffledOptions = options.sort(() => Math.random() - 0.5);
+
+        // Get the index of the correct answer in the shuffled options
+        const correctIndex = shuffledOptions.indexOf(q.correct_answer);
+
+        return {
+          question: q.question,
+          options: shuffledOptions,
+          answer: correctIndex
+        };
+      });
+      loadQuestion(); // Call loadQuestion once the questions are fetched
+    })
+    .catch(error => {
+      console.error('Error fetching questions:', error);
+    });
+}
 
 function loadQuestion() {
+  if (questions.length === 0) return;
+
   const q = questions[current];
   document.getElementById("question-text").textContent = q.question;
 
@@ -57,14 +73,14 @@ function showResult() {
   document.getElementById("quiz-container").style.display = "none";
   const result = document.getElementById("result");
   result.style.display = "block";
-  result.innerHTML = `<h2>You got ${score} out of ${questions.length} correct!</h2>`;
+  result.innerHTML = <h2>You got ${score} out of ${questions.length} correct!</h2>;
 
   const progress = Math.round((score / questions.length) * 100);
-  localStorage.setItem("progress-french", progress);
+  localStorage.setItem("progress-geo", progress);
 }
 
 function goHome() {
   window.location.href = "index.html";
 }
 
-window.onload = loadQuestion;
+window.onload = fetchQuestions;
