@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Science</title>
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <title>computer-science Quiz</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-      <header>
+    <header>
     <div class="title" onclick="window.location.href='index.html'">QuizZone</div>
     <!-- Hamburger Button -->
     <div class="hamburger" onclick="toggleMenu()">
@@ -23,13 +22,26 @@
     <a href="index.html">Home</a>
     <a href="about.html">About Us</a>
     <a href="contact.html">Contact</a>
-    <a href="french.html">French Quiz</a>
+    <a href="computer-science.html">computer-science Quiz</a>
     <a href="geo.html">Geography Quiz</a>
     <a href="math.html">Math Quiz</a>
     <a href="science.html">Science Quiz</a>
   </div>
-
-  <script src="script.js"></script>
+  <main>
+    <div id="quiz-container">
+      <div id="question-text">Loading...</div>
+      <div id="answers"></div>
+      <button id="next-btn" style="display:none;" onclick="nextQuestion()">Next</button>
+    </div>
+    <div id="result" style="display:none;"></div>
+    <button onclick="goHome()">Back to Home</button>
+  </main>
+   <footer>
+    <p>All right reserved to DAROUGE
+    <br>© 2025 QuizZone --- <a href="about.html">About Us</a></p>
+  </footer>
+  <script src="science.js"></script>
+    <script src="script.js"></script>
   <script>
     // Function to toggle the side menu on and off
     function toggleMenu() {
@@ -51,6 +63,5 @@
       }
     });
   </script>
-    
 </body>
 </html>

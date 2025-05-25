@@ -1,6 +1,6 @@
 // Load progress from localStorage when the page loads
 document.addEventListener('DOMContentLoaded', () => {
-  const subjects = ['french', 'english', 'math', 'science', 'geo'];
+  const subjects = ['computer-science', 'english', 'math', 'science', 'geo'];
   subjects.forEach(subject => {
     const progress = localStorage.getItem(`progress-${subject}`) || 0;
     updateProgressBar(subject, progress);

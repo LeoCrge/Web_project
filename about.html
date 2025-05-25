@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>QuizZone</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="title" onclick="window.location.href='index.html'">QuizZone</div>
+    <!-- Hamburger Button -->
+    <div class="hamburger" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </header>
+
+  <!-- Side Navigation Menu -->
+  <div id="sideMenu" class="side-menu">
+    <button class="close-btn" onclick="toggleMenu()"></button> <!-- Close Button -->
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact</a>
+    <a href="computer-science.html">computer-science Quiz</a>
+    <a href="geo.html">Geography Quiz</a>
+    <a href="math.html">Math Quiz</a>
+    <a href="science.html">Science Quiz</a>
+  </div>
+
+  <main id ="about-main">
+    <h1>About Us</h1>
+    <p> Welcome to QuiZZone a place to learn and grow with increadible questions to test-out your skills in different
+        sections. <br>
+    Feel free to contact us at our links below <br></p>
+    <a href="contact.html"> I am a link, please click me </a>
+  </main>
+    <div id = "video-container">
+        <h2>This video was made by <a href = "https://www.youtube.com/watch?v=yxUkUaV2VPs" >Seeker </a></h2>
+        <video width="320" height="240" controls>
+            <source src="/video/brain_video.mp4" type="video/mp4">
+            Oops, guess you can't watch it
+        </video>
+    </div>
+
+
+
+  <footer>
+    <p>All right reserved to DAROUGE
+    <br>© 2025 QuizZone --- <a href="about.html">About Us</a></p>
+  </footer>
+  <script src="script.js"></script>
+  <script>
+    // Function to toggle the side menu on and off
+    function toggleMenu() {
+      const sideMenu = document.getElementById('sideMenu');
+      sideMenu.classList.toggle('open'); // Toggle the 'open' class to show/hide the menu
+    }
+    // Close the menu when clicking outside of it
+    window.addEventListener('click', function(e) {
+      const sideMenu = document.getElementById('sideMenu');
+      const hamburger = document.querySelector('.hamburger');
+      if (!sideMenu.contains(e.target) && !hamburger.contains(e.target)) {
+        sideMenu.classList.remove('open'); // Close the menu if the user clicks outside
+      }
+    });
+  </script>
+</body>
+</html>
