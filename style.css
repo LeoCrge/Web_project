@@ -156,7 +156,7 @@ button::after {
 }
 
 button:hover::after {
-  opacity: 0.7;
+  opacity: 0.9;
 }
 
 button:hover {
@@ -238,9 +238,21 @@ button > * {
 }
 
 .btn-cs::after {
-  background: url('img/computer-science.png') center/cover no-repeat;
+  background: url('img/cs-image.avif') center/cover no-repeat;
 }
 
 .btn-english::after {
   background: url('img/english.png') center/cover no-repeat;
+}
+
+.btn-math::after {
+  background: url('img/img-math.png') center/cover no-repeat;
+}
+
+.btn-science::after {
+  background: url('img/science.png') center/cover no-repeat;
+}
+
+.btn-geo::after {
+  background: url('img/geo.png') center/cover no-repeat;
 }
