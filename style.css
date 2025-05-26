@@ -129,19 +129,47 @@ main {
 }
 
 button {
-  padding: 10px 20px;
-  font-size: 1.2em;
+  position: relative;
+  padding: 20px 40px;
+  font-size: 1.5em;
   margin-bottom: 10px;
   border: none;
   background-color: #2ecc71;
   color: white;
-  border-radius: 8px;
+  border-radius: 12px;
   cursor: pointer;
   transition: background-color 0.3s;
+  overflow: hidden; /* Needed for ::after */
+  z-index: 1;
+}
+
+button::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url('your-image.jpg') center/cover no-repeat;
+  opacity: 0;
+  filter: blur(6px);
+  transition: opacity 0.5s;
+  z-index: 0;
+  pointer-events: none;
+}
+
+button:hover::after {
+  opacity: 0.7;
 }
 
 button:hover {
   background-color: #27ae60;
+}
+
+button {
+  position: relative;
+  z-index: 1;
+}
+button > * {
+  position: relative;
+  z-index: 2;
 }
 
 .progress-bar {
@@ -160,4 +188,51 @@ button:hover {
 
 .video-container h2{
   background-color: black;
+}
+
+.contact-section {
+  margin: 40px auto 20px auto;
+  max-width: 600px;
+  background: #f7fafd;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(74, 144, 226, 0.08);
+  padding: 32px 24px;
+}
+
+.contact-section h2 {
+  text-align: center;
+  color: #4a90e2;
+  margin-bottom: 24px;
+  font-size: 2em;
+  font-weight: 600;
+}
+
+.contact-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(74, 144, 226, 0.06);
+}
+
+.contact-table th, .contact-table td {
+  padding: 16px 12px;
+  text-align: left;
+}
+
+.contact-table th {
+  background-color: #4a90e2;
+  color: white;
+  font-size: 1.1em;
+  font-weight: 500;
+}
+
+.contact-table tr:nth-child(even) {
+  background-color: #f0f6fb;
+}
+
+.contact-table tr:hover td {
+  background-color: #e3f1fc;
+  transition: background 0.2s;
 }
