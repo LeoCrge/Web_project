@@ -125,7 +125,7 @@ main {
 
 .subject {
   margin: 20px auto;
-  max-width: 400px;
+  max-width: 30%;
 }
 
 button {
@@ -158,3 +158,6 @@ button:hover {
   transition: width 0.5s ease-in-out;
 }
 
+.video-container h2{
+  background-color: black;
+}
