@@ -236,3 +236,11 @@ button > * {
   background-color: #e3f1fc;
   transition: background 0.2s;
 }
+
+.btn-cs::after {
+  background: url('img/computer-science.png') center/cover no-repeat;
+}
+
+.btn-english::after {
+  background: url('img/english.png') center/cover no-repeat;
+}
