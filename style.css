@@ -186,9 +186,22 @@ button > * {
   transition: width 0.5s ease-in-out;
 }
 
-.video-container h2{
-  background-color: black;
+#video-container {
+  text-align: center;
+  margin: 2rem auto;
+  color: #40e0d0; /* Light turquoise for text */
 }
+
+#video-container a {
+  color: #20b2aa; /* Darker turquoise for links */
+  text-decoration: none;
+}
+
+#video-container a:hover {
+  color: #00ced1; /* Even brighter turquoise on hover */
+  text-decoration: underline;
+}
+
 
 .contact-section {
   margin: 40px auto 20px auto;
