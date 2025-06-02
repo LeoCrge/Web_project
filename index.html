@@ -30,69 +30,61 @@
 
   <main>
     <div class="subject" id="computer-science">
-      <a href="computer-science.html" class="subject-button">
-        <button class="btn-cs" onclick="startQuiz('computer-science')">Computer Science</button></a>
+      <button class="btn-cs  " onclick="window.location.href='computer-science.html'; startQuiz('computer-science')">Computer Science</button>
       <div class="progress-bar">
         <div class="progress" id="progress-computer-science" style="width: 80%;"></div>
       </div>
     </div>
 
     <div class="subject" id="english">
-    <a href="english.html" class="subject-button">
-    <button class="btn-english" onclick="startQuiz('english')">English</button></a>
+      <button class="btn-english  " onclick="window.location.href='english.html'; startQuiz('english')">English</button>
       <div class="progress-bar">
         <div class="progress" id="progress-english" style="width: 80%;"></div>
       </div>
     </div>
 
     <div class="subject" id="math">
-    <a href="math.html" class="subject-button">
-    <button class="btn-math" onclick="startQuiz('math')">Math</button></a>
+      <button class="btn-math" onclick="window.location.href='math.html'; startQuiz('math')">Math</button>
       <div class="progress-bar">
         <div class="progress" id="progress-math" style="width: 80%;"></div>
       </div>
     </div>
 
     <div class="subject" id="science">
-    <a href="science.html" class="subject-button">
-    <button class="btn-science" onclick="startQuiz('science')">Science</button></a>
+      <button class="btn-science" onclick="window.location.href='science.html'; startQuiz('science')">Science</button>
       <div class="progress-bar">
         <div class="progress" id="progress-science" style="width: 80%;"></div>
       </div>
     </div>
 
     <div class="subject" id="geo">
-    <a href="geo.html" class="subject-button">
-    <button class="btn-geo" onclick="startQuiz('geo')">Geography</button></a>
+      <button class="btn-geo" onclick="window.location.href='geo.html'; startQuiz('geo')">Geography</button>
       <div class="progress-bar">
         <div class="progress" id="progress-geo" style="width: 80%;"></div>
       </div>
     </div>
   </main>
 
- <footer>
-    <p>All right reserved to DAROUGE
-    <br>© 2025 QuizZone --- <a href="about.html">About Us</a></p>
+  <footer>
+    <p>All rights reserved to DAROUGE<br>© 2025 QuizZone --- <a href="about.html">About Us</a></p>
   </footer>
+
   <script src="script.js"></script>
   <script>
-    // Function to toggle the side menu on and off
     function toggleMenu() {
       const sideMenu = document.getElementById('sideMenu');
-      sideMenu.classList.toggle('open'); // Toggle the 'open' class to show/hide the menu
+      sideMenu.classList.toggle('open');
     }
 
-    // Example function to handle quiz starting
     function startQuiz(subject) {
       alert(`Starting ${subject} quiz!`);
     }
 
-    // Close the menu when clicking outside of it
     window.addEventListener('click', function(e) {
       const sideMenu = document.getElementById('sideMenu');
       const hamburger = document.querySelector('.hamburger');
       if (!sideMenu.contains(e.target) && !hamburger.contains(e.target)) {
-        sideMenu.classList.remove('open'); // Close the menu if the user clicks outside
+        sideMenu.classList.remove('open');
       }
     });
   </script>
